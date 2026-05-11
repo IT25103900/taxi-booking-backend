@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d33b41f4-c855-47f8-b5fd-9badd443dc81" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/controller/PaymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/dto/PaymentInvoiceDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/CardPayment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/CashPayment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/Payment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/repository/PaymentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/service/PaymentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/Sedan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/Van.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +25,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -41,15 +41,34 @@
   &quot;keyToString&quot;: {
     &quot;Application.TaxiBookingBackendApplication.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;IT25103896__vehicle__fleet__management&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/OOP _Project/taxi-booking-backend&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/janit/Documents/SLIIT/Y1S2/OOP Project/Campus_Mail/Project/taxi-booking-backend/src/main/java/com/taxi_booking/taxi_booking_backend/entity&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\janit\Documents\SLIIT\Y1S2\OOP Project\Campus_Mail\Project\taxi-booking-backend\src\main\java\com\taxi_booking\taxi_booking_backend\entity" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.taxi_booking.taxi_booking_backend.entity" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="d33b41f4-c855-47f8-b5fd-9badd443dc81" name="Changes" comment="" />
