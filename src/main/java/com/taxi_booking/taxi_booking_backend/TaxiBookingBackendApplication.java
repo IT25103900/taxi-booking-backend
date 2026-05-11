@@ -10,6 +10,7 @@ public class TaxiBookingBackendApplication {
 		SpringApplication.run(TaxiBookingBackendApplication.class, args);
 		System.out.println("Hellow");
 		System.out.println("hello");
+		System.out.println("hyy");
 	}
 
 }
