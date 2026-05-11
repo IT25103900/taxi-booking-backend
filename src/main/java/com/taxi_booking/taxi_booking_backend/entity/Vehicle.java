@@ -1,26 +1,23 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
 public abstract class Vehicle {
-    private String vehicleId;
-    private String brand;
-    private String model;
-    private int year;
-    private String licensePlate;
-    private String status;
+    protected String vehicleId;
+    protected String brand;
+    protected String model;
+    protected double pricePerKm;
+    protected boolean isAvailable;
 
-    Vehicle(String vehicleId, String brand, String model, int year, String licensePlate, String status){
+    public Vehicle(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable) {
         this.vehicleId = vehicleId;
         this.brand = brand;
         this.model = model;
-        this.year = year;
-        this.licensePlate = licensePlate;
-        this.status = status;
+        this.pricePerKm = pricePerKm;
+        this.isAvailable = isAvailable;
     }
 
     public String getVehicleId() {
         return vehicleId;
     }
-
     public void setVehicleId(String vehicleId) {
         this.vehicleId = vehicleId;
     }
@@ -28,7 +25,6 @@ public abstract class Vehicle {
     public String getBrand() {
         return brand;
     }
-
     public void setBrand(String brand) {
         this.brand = brand;
     }
@@ -36,42 +32,25 @@ public abstract class Vehicle {
     public String getModel() {
         return model;
     }
-
     public void setModel(String model) {
         this.model = model;
     }
 
-    public int getYear() {
-        return year;
+    public double getPricePerKm() {
+        return pricePerKm;
+    }
+    public void setPricePerKm(double pricePerKm) {
+        this.pricePerKm = pricePerKm;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 
-    public String getLicensePlate() {
-        return licensePlate;
-    }
-
-    public void setLicensePlate(String licensePlate) {
-        this.licensePlate = licensePlate;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    public String getDetails() {
-        return "ID: " + vehicleId + ", Brand: " + brand + ", Model: " + model +
-                ", Year: " + year + ", Plate: " + licensePlate + ", Status: " + status;
-    }
+    public abstract void displayDetails();
 
     public abstract double calculateMaintenanceCost();
-
-    public String toFileString() {
-        return vehicleId + "," + brand + "," + model + "," + year + "," + licensePlate + "," + status;
-    }
 }
