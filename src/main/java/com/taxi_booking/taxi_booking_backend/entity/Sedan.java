@@ -1,24 +1,37 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
-public class Sedan extends Vehicle {
+public class Sedan extends Car {
+    private double bootSpace;
+    private boolean hasSunroof;
 
-    private int passengerCapacity;
-
-    public Sedan(String vehicleId, String brand, String model, int year, String licensePlate, String status, int passengerCapacity) {
-        super(vehicleId, brand, model, year, licensePlate, status);
-        this.passengerCapacity = passengerCapacity;
+    public Sedan(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable, int numberOfSeats, String fuelType, String carType, double bootSpace, boolean hasSunroof) {
+        super(vehicleId, brand, model, pricePerKm, isAvailable, numberOfSeats, fuelType, carType);
+        this.bootSpace = bootSpace;
+        this.hasSunroof = hasSunroof;
     }
 
-    public int getPassengerCapacity() { return passengerCapacity; }
-    public void setPassengerCapacity(int passengerCapacity) { this.passengerCapacity = passengerCapacity; }
+    public double getBootSpace() {
+        return bootSpace;
+    }
+    public void setBootSpace(double bootSpace) {
+        this.bootSpace = bootSpace;
+    }
+
+    public boolean isHasSunroof() {
+        return hasSunroof;
+    }
+    public void setHasSunroof(boolean hasSunroof) {
+        this.hasSunroof = hasSunroof;
+    }
 
     @Override
-    public String getDetails() {
-        return super.getDetails() + ", Capacity: " + passengerCapacity;
+    public void displayDetails() {
+        System.out.println("ID: " + vehicleId + " | Brand: " + brand + " | Model: " + model);
+        System.out.println("Boot Space: " + bootSpace + "L | Sunroof: " + hasSunroof);
     }
 
     @Override
     public double calculateMaintenanceCost() {
-        return 5000.00;
+        return 6500.00;
     }
 }
