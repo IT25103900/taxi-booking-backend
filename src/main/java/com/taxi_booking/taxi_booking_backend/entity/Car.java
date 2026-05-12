@@ -1,38 +1,46 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
-public class Car extends Vehicle{
-    private int numDoors;
+public class Car extends Vehicle {
+    private int numberOfSeats;
     private String fuelType;
+    private String carType;
 
-    public Car(String vehicleId, String brand, String model, int year, String licensePlate, String status, int numDoors, String fuelType) {
-        super(vehicleId, brand, model, year, licensePlate, status);
-        this.numDoors = numDoors;
+    public Car(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable, int numberOfSeats, String fuelType, String carType) {
+        super(vehicleId, brand, model, pricePerKm, isAvailable);
+        this.numberOfSeats = numberOfSeats;
         this.fuelType = fuelType;
+        this.carType = carType;
     }
 
-    public int getNumDoors() {
-        return numDoors;
+    public int getNumberOfSeats() {
+        return numberOfSeats;
     }
-
-    public void setNumDoors(int numDoors) {
-        this.numDoors = numDoors;
+    public void setNumberOfSeats(int numberOfSeats) {
+        this.numberOfSeats = numberOfSeats;
     }
 
     public String getFuelType() {
         return fuelType;
     }
-
     public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
     }
 
+    public String getCarType() {
+        return carType;
+    }
+    public void setCarType(String carType) {
+        this.carType = carType;
+    }
+
     @Override
-    public String getDetails() {
-        return super.getDetails() + ", Doors: " + numDoors + ", Fuel Type: " + fuelType;
+    public void displayDetails() {
+        System.out.println("ID: " + vehicleId + " | Brand: " + brand + " | Model: " + model);
+        System.out.println("Seats: " + numberOfSeats + " | Fuel: " + fuelType + " | Type: " + carType);
     }
 
     @Override
     public double calculateMaintenanceCost() {
-        return 4500.00;
+        return 5000.00;
     }
 }
