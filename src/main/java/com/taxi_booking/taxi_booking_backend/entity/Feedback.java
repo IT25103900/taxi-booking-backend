@@ -50,4 +50,8 @@ public abstract class Feedback
     {
         this.date = date;
     }
+
+
+    public abstract void displayDetails();
+
 }
