@@ -13,4 +13,32 @@ public class DriverReview extends Feedback
         this.comment = comment;
         this.suggestedReasons = suggestedReasons;
     }
+
+    public int getRating()
+    {
+        return rating;
+    }
+    public void setRating(int rating)
+    {
+        this.rating = rating;
+    }
+
+    public String getComment()
+    {
+        return comment;
+    }
+    public void setComment(String comment)
+    {
+        this.comment = comment;
+    }
+
+    public String[] getSuggestedReasons()
+    {
+        return suggestedReasons;
+    }
+    public void setSuggestedReasons(String[] suggestedReasons)
+    {
+        this.suggestedReasons = suggestedReasons;
+    }
+
 }
