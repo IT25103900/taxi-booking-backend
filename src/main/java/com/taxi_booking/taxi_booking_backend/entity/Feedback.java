@@ -3,13 +3,15 @@ package com.taxi_booking.taxi_booking_backend.entity;
 public abstract class Feedback
 {
     private String feedbackId;
+    private String tripId;
     private String customerId;
     private String driverId;
     private String date;
 
-    public Feedback(String feedbackId, String customerId, String driverId, String date)
+    public Feedback(String feedbackId, String tripId, String customerId, String driverId, String date)
     {
         this.feedbackId = feedbackId;
+        this.tripId = tripId;
         this.customerId = customerId;
         this.driverId = driverId;
         this.date = date;
@@ -22,6 +24,15 @@ public abstract class Feedback
     public void setFeedbackId(String feedbackId)
     {
         this.feedbackId = feedbackId;
+    }
+
+    public String getTripId()
+    {
+        return tripId;
+    }
+    public void setTripId(String tripId)
+    {
+        this.tripId = tripId;
     }
 
     public String getCustomerId()
