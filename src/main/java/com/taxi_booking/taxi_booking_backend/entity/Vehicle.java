@@ -15,6 +15,9 @@ public abstract class Vehicle {
         this.isAvailable = isAvailable;
     }
 
+    public Vehicle() {
+    }
+
     public String getVehicleId() {
         return vehicleId;
     }
