@@ -7,8 +7,9 @@ public class DriverReview extends Feedback
     private String comment;
     private String[] suggestedReasons;
 
-    public DriverReview(String feedbackId, String customerId, String driverId, String date, int rating, String comment, String[] suggestedReasons) {
-        super(feedbackId, customerId, driverId, date); // Feedback constructor call
+    public DriverReview(String feedbackId, String tripId, String customerId, String driverId, String date, int rating, String comment, String[] suggestedReasons)
+    {
+        super(feedbackId, tripId, customerId, driverId, date);
         this.rating = rating;
         this.comment = comment;
         this.suggestedReasons = suggestedReasons;
