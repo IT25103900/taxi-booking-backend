@@ -7,7 +7,8 @@ public class DriverReview extends Feedback
     private String comment;
     private String[] suggestedReasons;
 
-    public DriverReview(String feedbackId, String tripId, String customerId, String driverId, String date, int rating, String comment, String[] suggestedReasons)
+    public DriverReview(String feedbackId, String tripId, String customerId, String driverId,
+                        String date, int rating, String comment, String[] suggestedReasons)
     {
         super(feedbackId, tripId, customerId, driverId, date);
         this.rating = rating;
@@ -42,4 +43,21 @@ public class DriverReview extends Feedback
         this.suggestedReasons = suggestedReasons;
     }
 
+
+    @Override
+    public void displayDetails()
+    {
+        System.out.println("--- Driver Review ---");
+
+        System.out.println("ID: " + getFeedbackId() + " | Trip ID: " + getTripId() + " | Rating: " + rating + "/5");
+        System.out.println("Comment: " + comment);
+
+        System.out.print("Reasons: ");
+        for (String reason : suggestedReasons)
+        {
+            System.out.print(reason + " ");
+        }
+
+        System.out.println("\n--------------------");
+    }
 }
