@@ -52,10 +52,14 @@ public class DriverReview extends Feedback
         System.out.println("ID: " + getFeedbackId() + " | Trip ID: " + getTripId() + " | Rating: " + rating + "/5");
         System.out.println("Comment: " + comment);
 
-        System.out.print("Reasons: ");
-        for (String reason : suggestedReasons)
+        // Check if the array is not empty, then print reasons, Else print "None".
+        if (suggestedReasons != null && suggestedReasons.length > 0)
         {
-            System.out.print(reason + " ");
+            System.out.println("Reasons: " + String.join(", ", suggestedReasons));
+        }
+        else
+        {
+            System.out.println("Reasons: None");
         }
 
         System.out.println("\n--------------------");
