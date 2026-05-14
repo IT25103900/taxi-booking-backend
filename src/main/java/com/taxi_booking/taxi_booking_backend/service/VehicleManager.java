@@ -1,6 +1,7 @@
 package com.taxi_booking.taxi_booking_backend.service;
 
 import com.taxi_booking.taxi_booking_backend.entity.Vehicle;
+import com.taxi_booking.taxi_booking_backend.exception.VehicleNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -43,15 +44,12 @@ public class VehicleManager {
 
     // Remove a vehicle from the system
     public void deleteVehicle(String id) {
-        for (int i = 0; i < vehicleList.size(); i++) {
-            Vehicle currentVehicle = vehicleList.get(i);
+        boolean isRemoved = vehicleList.removeIf(vehicle -> vehicle.getVehicleId().equals(id));
 
-            if (currentVehicle.getVehicleId().equals(id)) {
-                vehicleList.remove(i); // Remove the vehicle from the list
-                System.out.println("Vehicle with ID " + id + " has been successfully deleted.");
-                return;
-            }
+        if (!isRemoved) {
+            throw new VehicleNotFoundException("Vehicle with ID " + id + " does not exist in the system!");
+        } else {
+            System.out.println("Vehicle with ID " + id + " deleted successfully.");
         }
-        System.out.println("Delete Failed: Vehicle with ID " + id + " not found!");
     }
 }
