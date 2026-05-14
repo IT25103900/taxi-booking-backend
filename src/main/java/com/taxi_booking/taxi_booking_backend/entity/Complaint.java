@@ -32,4 +32,15 @@ public class Complaint extends Feedback
     {
         this.status = status;
     }
+
+
+    @Override
+    public void displayDetails()
+    {
+        System.out.println("--- Complaint ---");
+        System.out.println("ID: " + getFeedbackId() + " | Trip ID: " + getTripId() + " | Status: " + status);
+        System.out.println("Reason: " + complaintReason);
+        System.out.println("Date: " + getDate());
+        System.out.println("-----------------");
+    }
 }
