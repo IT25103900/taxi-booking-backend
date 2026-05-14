@@ -16,11 +16,12 @@ public class FeedbackManager
     }
 
     // Read
-    public void viewAllFeedbacks()
+    public List<Feedback> viewAllFeedbacks()
     {
-        System.out.println("All Feedbacks: " + feedbackList);
+        return feedbackList;
     }
 
+    // Update
     public void updateFeedback(Feedback updatedFeedback)
     {
         for (int i = 0; i < feedbackList.size(); i++)
@@ -32,5 +33,19 @@ public class FeedbackManager
             }
         }
         System.out.println("Feedback not found!");
+    }
+
+    // Delete
+    public void deleteFeedback(String id)
+    {
+        for (int i = 0; i < feedbackList.size(); i++)
+        {
+            if (feedbackList.get(i).getFeedbackId().equals(id))
+            {
+                feedbackList.remove(i);
+                System.out.println("Feedback " + id + " deleted.");
+                break;
+            }
+        }
     }
 }
