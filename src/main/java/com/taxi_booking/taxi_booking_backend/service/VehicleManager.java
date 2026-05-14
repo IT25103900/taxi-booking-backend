@@ -1,9 +1,12 @@
 package com.taxi_booking.taxi_booking_backend.service;
 
 import com.taxi_booking.taxi_booking_backend.entity.Vehicle;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class VehicleManager {
 
     // Store the vehicles added to the system
