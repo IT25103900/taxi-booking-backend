@@ -13,4 +13,23 @@ public class Complaint extends Feedback
         this.complaintReason = complaintReason;
         this.status = status;
     }
+
+
+    public String getComplaintReason()
+    {
+        return complaintReason;
+    }
+    public void setComplaintReason(String reason)
+    {
+        this.complaintReason = reason;
+    }
+
+    public String getStatus()
+    {
+        return status;
+    }
+    public void setStatus(String status)
+    {
+        this.status = status;
+    }
 }
