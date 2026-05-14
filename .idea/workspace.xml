@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;C:/1 . SLIIT/Semester 02/OOP/Group Project/Taxi/backend&quot;
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2fedb3c1-2cc1-4a63-b0bf-b8a42d8a66a2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/TaxiBookingBackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/TaxiBookingBackendApplication.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "IT25103897__payment__&&__billing__records",
+    "last_opened_file_path": "C:/1 . SLIIT/Semester 02/OOP/Group Project/Taxi/backend"
   }
-}</component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
+}]]></component>
+  <component name="TaskManager">
+    <servers />
   </component>
 </project>

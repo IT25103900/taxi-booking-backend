@@ -1,0 +1,7 @@
+package com.dashdrive.backend.entity.enums;
+
+public enum PaymentStatus {
+    PAID,
+    REFUNDED,
+    PENDING
+}
