@@ -44,13 +44,19 @@ public class VehicleManager {
     }
 
     // Remove a vehicle from the system
-    public void deleteVehicle(String id) {
-        boolean isRemoved = vehicleList.removeIf(vehicle -> vehicle.getVehicleId().equals(id));
+    public boolean deleteVehicle(String id) {
+        for (int i = 0; i < vehicleList.size(); i++) {
+            Vehicle currentVehicle = vehicleList.get(i);
 
-        if (!isRemoved) {
-            throw new VehicleNotFoundException("Vehicle with ID " + id + " does not exist in the system!");
-        } else {
-            System.out.println("Vehicle with ID " + id + " deleted successfully.");
+            // If the vehicle is found, remove it from the list
+            if (currentVehicle.getVehicleId().equals(id)) {
+                vehicleList.remove(i);
+                System.out.println("Vehicle with ID " + id + " deleted successfully.");
+                return true;
+            }
         }
+        // If the entire list is searched and the vehicle is not found
+        System.out.println("Delete Failed: Vehicle with ID " + id + " not found!");
+        return false;
     }
 }
