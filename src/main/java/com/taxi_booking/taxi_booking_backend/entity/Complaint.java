@@ -39,6 +39,7 @@ public class Complaint extends Feedback
     {
         System.out.println("--- Complaint ---");
         System.out.println("ID: " + getFeedbackId() + " | Trip ID: " + getTripId() + " | Status: " + status);
+        System.out.println("Customer ID: " + getCustomerId() + " | Driver ID: " + getDriverId());
         System.out.println("Reason: " + complaintReason);
         System.out.println("Date: " + getDate());
         System.out.println("-----------------");
