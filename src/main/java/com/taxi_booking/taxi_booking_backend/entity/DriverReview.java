@@ -48,7 +48,7 @@ public class DriverReview extends Feedback
     public void displayDetails()
     {
         System.out.println("======================================");
-        System.out.println("       DASH DRIVE DRIVER REVIEW       ");
+        System.out.println("         DRIVER REVIEW       ");
         System.out.println("======================================");
         System.out.println(" Review Ref  : " + getFeedbackId());
         System.out.println(" Booking ID  : " + getTripId());
