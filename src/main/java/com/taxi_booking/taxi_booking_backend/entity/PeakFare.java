@@ -10,10 +10,7 @@ public class PeakFare extends PricingModel {
     public PeakFare() {
     }
 
-    public PeakFare(double baseRate,
-                    double distanceMultiplier,
-                    double surgeMultiplier) {
-
+    public PeakFare(double baseRate, double distanceMultiplier, double surgeMultiplier) {
         super(baseRate, distanceMultiplier);
         this.surgeMultiplier = surgeMultiplier;
     }
@@ -29,11 +26,11 @@ public class PeakFare extends PricingModel {
     @Override
     public double calculateTotalFare(double distance, double time) {
 
-        double standardFare =
-                getBaseRate() +
-                        (distance * getDistanceMultiplier()) +
-                        (time * 20);
+        double baseFare =
+                getBaseRate()
+                        + (distance * getDistanceMultiplier())
+                        + (time * 20);
 
-        return standardFare * surgeMultiplier;
+        return baseFare * surgeMultiplier;
     }
 }
