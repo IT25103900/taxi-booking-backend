@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d33b41f4-c855-47f8-b5fd-9badd443dc81" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/controller/PaymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/dto/PaymentInvoiceDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/CardPayment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/CashPayment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/Payment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/repository/PaymentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/service/PaymentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/TaxiBookingBackendApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2026-03-13T16-10-44_256.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.taxi_booking.taxi_booking_backend.TaxiBookingBackendApplicationTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.taxi_booking.taxi_booking_backend.TaxiBookingBackendApplicationTests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/taxi_booking/taxi_booking_backend/TaxiBookingBackendApplicationTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,19 +36,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.TaxiBookingBackendApplication.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/OOP _Project/taxi-booking-backend&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.TaxiBookingBackendApplication.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/SLIIT/oop/real-oop/taxi-booking-backend",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
-}</component>
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="d33b41f4-c855-47f8-b5fd-9badd443dc81" name="Changes" comment="" />
