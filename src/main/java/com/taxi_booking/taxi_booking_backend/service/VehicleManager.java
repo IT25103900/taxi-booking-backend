@@ -29,17 +29,18 @@ public class VehicleManager {
     }
 
     // Update vehicle details
-    public void updateVehicle(String id, Vehicle updatedVehicle) {
+    public boolean updateVehicle(String id, Vehicle updatedVehicle) {
         for (int i = 0; i < vehicleList.size(); i++) {
             Vehicle currentVehicle = vehicleList.get(i);
 
             if (currentVehicle.getVehicleId().equals(id)) {
                 vehicleList.set(i, updatedVehicle); // Replace the old vehicle with the new one
                 System.out.println("Vehicle with ID " + id + " has been successfully updated.");
-                return;
+                return true; // Update successful
             }
         }
         System.out.println("Update Failed: Vehicle with ID " + id + " not found!");
+        return false;
     }
 
     // Remove a vehicle from the system
