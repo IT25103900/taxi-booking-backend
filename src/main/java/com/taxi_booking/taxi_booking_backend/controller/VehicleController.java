@@ -27,10 +27,29 @@ public class VehicleController {
         return vehicleManager.getAllVehicles();
     }
 
+    // Update an existing vehicle in the system
+    @PutMapping("/update/{id}")
+    public String updateVehicle(@PathVariable String id, @RequestBody Vehicle vehicle) {
+        boolean isUpdated = vehicleManager.updateVehicle(id, vehicle);
+
+        // Check if the update was successful
+        if (isUpdated) {
+            return "Vehicle updated successfully!";
+        } else {
+            return "Update Failed: Vehicle with ID " + id + " not found!";
+        }
+    }
+
     // Delete a vehicle from the system
     @DeleteMapping("/delete/{id}")
     public String deleteVehicle(@PathVariable String id) {
-        vehicleManager.deleteVehicle(id);
-        return "Vehicle deleted successfully!";
+        boolean isDeleted = vehicleManager.deleteVehicle(id);
+
+        // Check if the deletion was successful
+        if (isDeleted) {
+            return "Vehicle deleted successfully!";
+        } else {
+            return "Delete Failed: Vehicle with ID " + id + " not found!";
+        }
     }
 }
