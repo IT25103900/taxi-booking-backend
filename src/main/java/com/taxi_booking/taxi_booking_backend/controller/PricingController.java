@@ -3,45 +3,38 @@ package com.taxi_booking.taxi_booking_backend.controller;
 import com.taxi_booking.taxi_booking_backend.dto.PricingDto;
 import com.taxi_booking.taxi_booking_backend.entity.PricingModel;
 import com.taxi_booking.taxi_booking_backend.service.PricingService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/pricing")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class PricingController {
 
-    @Autowired
-    private PricingService pricingService;
+    private final PricingService pricingService;
 
-    @PostMapping("/estimate")
-    public double estimateFare(
-            @RequestBody PricingDto dto) {
-
-        return pricingService.estimateFare(dto);
+    public PricingController(PricingService pricingService) {
+        this.pricingService = pricingService;
     }
 
-    @PostMapping("/create")
-    public PricingModel createRate(
-            @RequestBody PricingModel pricingModel) {
-
-        return pricingService.createRateTable(pricingModel);
+    @PostMapping("/estimate-fare")
+    public double getFareEstimate(@RequestBody PricingDto request) {
+        return pricingService.estimateFare(request);
     }
 
-    @PutMapping("/update/{id}")
-    public PricingModel updateRate(
-            @PathVariable Long id,
-            @RequestBody PricingModel pricingModel) {
-
-        return pricingService.updateRate(id, pricingModel);
+    @PostMapping("/add-rate")
+    public PricingModel addPricing(@RequestBody PricingModel model) {
+        return pricingService.createRateTable(model);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String deleteRate(
-            @PathVariable Long id) {
+    @PutMapping("/modify/{id}")
+    public PricingModel modifyPricing(@PathVariable Long id,
+                                      @RequestBody PricingModel model) {
+        return pricingService.updateRate(id, model);
+    }
 
+    @DeleteMapping("/remove/{id}")
+    public String removePricing(@PathVariable Long id) {
         pricingService.deleteRate(id);
-
-        return "Rate deleted successfully";
+        return "Pricing rule removed successfully";
     }
 }
