@@ -10,6 +10,12 @@ public class Bike extends Vehicle {
         return engineCapacity;
     }
 
+    public Bike(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable, double engineCapacity, boolean hasHelmetStorage) {
+        super(vehicleId, brand, model, pricePerKm, isAvailable);
+        this.engineCapacity = engineCapacity;
+        this.hasHelmetStorage = hasHelmetStorage;
+    }
+
     public void setEngineCapacity(double engineCapacity) {
         this.engineCapacity = engineCapacity;
     }
