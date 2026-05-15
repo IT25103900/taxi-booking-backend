@@ -1,10 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;C:/1 . SLIIT/Semester 02/OOP/Group Project/Taxi/backend&quot;
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="66e55964-ac49-4c72-9c65-49b85b77ad4f" name="Changes" comment="2st commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/TaxiBookingBackendApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/TaxiBookingBackendApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/controller/BookingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/controller/PaymentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/controller/PricingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/controller/ReviewController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/controller/VehicleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/dto/BookingDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/dto/FareEstimateDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/dto/PaymentInvoiceDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/dto/ReviewSubmissionDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/dto/UserRegistrationDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/dto/VehicleDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/AppFeedback.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/Bike.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/Booking.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/BookingStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/CardPayment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/CashPayment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/Driver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/DriverReview.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/FareCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/FareEstimate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/MiniCar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/Payment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/PaymentStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/PeakTimeFareCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/Review.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/ReviewStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/ScheduledBooking.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/Sedan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/StandardBooking.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/ThreeWheeler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/UserRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/Van.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/Vehicle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/VehicleCategory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/entity/VehicleStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/repository/BookingRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/repository/FareEstimateRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/repository/PaymentRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/repository/ReviewRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/repository/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/repository/VehicleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/service/BookingService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/service/PaymentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/service/PricingService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/service/ReviewService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/taxi_booking/taxi_booking_backend/service/VehicleService.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;assignee&quot;: &quot;it25103899&quot;,
+      &quot;author&quot;: &quot;it25103899&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;it25103899&quot;,
+    &quot;author&quot;: &quot;it25103899&quot;
   }
 }</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/IT25103900/taxi-booking-backend.git&quot;,
+    &quot;accountId&quot;: &quot;5df1f444-8f3d-43e3-be2f-3c43a7ffd3aa&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="3DZDQRzYOPGMidnbE0llOja183l" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.TaxiBookingBackendApplication.executor": "Run",
+    "git-widget-placeholder": "it25103899__Fare__&&__Pricing__Calculator",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/1 . SLIIT/Semester 02/OOP/Group Project/Taxi/backend"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
@@ -15,5 +118,61 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="66e55964-ac49-4c72-9c65-49b85b77ad4f" name="Changes" comment="" />
+      <created>1778480682381</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778480682381</updated>
+    </task>
+    <task id="LOCAL-00001" summary="initialize">
+      <option name="closed" value="true" />
+      <created>1778480778221</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1778480778221</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1st commit">
+      <option name="closed" value="true" />
+      <created>1778480903422</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1778480903428</updated>
+    </task>
+    <task id="LOCAL-00003" summary="2st commit">
+      <option name="closed" value="true" />
+      <created>1778483663983</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1778483663983</updated>
+    </task>
+    <task id="LOCAL-00004" summary="2st commit">
+      <option name="closed" value="true" />
+      <created>1778483869314</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1778483869314</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initialize" />
+    <MESSAGE value="1st commit" />
+    <MESSAGE value="2st commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="2st commit" />
   </component>
 </project>
