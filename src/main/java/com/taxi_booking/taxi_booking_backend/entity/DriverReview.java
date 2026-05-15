@@ -47,27 +47,22 @@ public class DriverReview extends Feedback
     @Override
     public void displayDetails()
     {
-        System.out.println("======================================");
-        System.out.println("         DRIVER REVIEW       ");
-        System.out.println("======================================");
-        System.out.println(" Review Ref  : " + getFeedbackId());
-        System.out.println(" Booking ID  : " + getTripId());
-        System.out.println(" Passenger   : " + getCustomerId());
-        System.out.println(" Driver      : " + getDriverId());
-        System.out.println(" Date        : " + getDate());
-        System.out.println("--------------------------------------");
-        System.out.println(" Rating      : " + rating + "/5");
-        System.out.println(" Comment     : " + comment);
+        System.out.println("--- Driver Review ---");
+        System.out.println("Feedback ID : " + getFeedbackId());
+        System.out.println("Trip ID     : " + getTripId());
+        System.out.println("Rating      : " + rating + "/5");
+        System.out.println("Comment     : " + comment);
 
-        // Check if the array is not empty, then print reasons, Else print "None".
-        if (suggestedReasons != null && suggestedReasons.length > 0)
+        // Check if the array is empty before printing
+        if (suggestedReasons != null)
         {
-            System.out.println(" Reasons     : " + String.join(", ", suggestedReasons));
+            System.out.println("Reasons     : " + String.join(", ", suggestedReasons));
         }
         else
         {
-            System.out.println(" Reasons     : None");
+            System.out.println("Reasons     : None");
         }
-        System.out.println("======================================\n");
+
+        System.out.println("---------------------");
     }
 }

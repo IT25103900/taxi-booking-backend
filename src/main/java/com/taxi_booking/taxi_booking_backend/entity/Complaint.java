@@ -35,20 +35,13 @@ public class Complaint extends Feedback
 
 
     @Override
-    public void displayDetails()
-    {
-        System.out.println("======================================");
-        System.out.println("             COMPLAINT         ");
-        System.out.println("======================================");
-        System.out.println(" Ticket Ref  : " + getFeedbackId());
-        System.out.println(" Booking ID  : " + getTripId());
-        System.out.println(" Status      : " + status);
-        System.out.println("--------------------------------------");
-        System.out.println(" Passenger   : " + getCustomerId());
-        System.out.println(" Driver      : " + getDriverId());
-        System.out.println(" Date        : " + getDate());
-        System.out.println("--------------------------------------");
-        System.out.println(" Reason      : " + complaintReason);
-        System.out.println("======================================\n");
+    public void displayDetails() {
+        System.out.println("--- Complaint Report ---");
+        System.out.println("Feedback ID : " + getFeedbackId());
+        System.out.println("Trip ID     : " + getTripId());
+        System.out.println("Status      : " + status);
+        System.out.println("Reason      : " + complaintReason);
+        System.out.println("Date        : " + getDate());
+        System.out.println("------------------------");
     }
 }
