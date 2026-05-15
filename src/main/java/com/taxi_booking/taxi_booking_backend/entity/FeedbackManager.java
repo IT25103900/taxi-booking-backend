@@ -8,24 +8,25 @@ public class FeedbackManager
 
     private List<Feedback> feedbackList = new ArrayList<>();
 
-    // Create
+    // CREATE
     public void addFeedback(Feedback f)
     {
         feedbackList.add(f);
         System.out.println("Feedback added successfully!");
     }
 
-    // Read
+    // READ
     public List<Feedback> viewAllFeedbacks()
     {
         return feedbackList;
     }
 
-    // Update
+    // UPDATE - find by ID and replace
     public void updateFeedback(Feedback updatedFeedback)
     {
         for (int i = 0; i < feedbackList.size(); i++)
         {
+            // Check if IDs match
             if (feedbackList.get(i).getFeedbackId().equals(updatedFeedback.getFeedbackId()))
             {
                 feedbackList.set(i, updatedFeedback);
@@ -35,7 +36,7 @@ public class FeedbackManager
         System.out.println("Feedback not found!");
     }
 
-    // Delete
+    // DELETE - remove by ID
     public void deleteFeedback(String id)
     {
         for (int i = 0; i < feedbackList.size(); i++)
@@ -44,8 +45,9 @@ public class FeedbackManager
             {
                 feedbackList.remove(i);
                 System.out.println("Feedback " + id + " deleted.");
-                break;
+                return;
             }
         }
+        System.out.println("Feedback ID not found!");
     }
 }
