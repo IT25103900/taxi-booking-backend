@@ -42,12 +42,19 @@ public class FeedbackSystem
         Complaint complaint1 = new Complaint("F002", tid, cid, did, date, "Driver was 10 minutes late", "Pending");
         manager.addFeedback(complaint1);
 
+
         // READ
         System.out.println("\n--- Current Feedback Records ---");
         for (Feedback f : manager.viewAllFeedbacks())
         {
             f.displayDetails();
         }
+
+        // UPDATE
+        System.out.println("\n--- Testing Update Operation ---");
+        DriverReview updatedReview = new DriverReview(fid, tid, cid, did, date, 5, "Updated Comment: Excellent!", reasons);
+        manager.updateFeedback(updatedReview);
+
 
         // DELETE
         System.out.print("\nEnter Feedback ID to delete: ");
