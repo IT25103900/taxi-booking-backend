@@ -39,6 +39,9 @@ public class FeedbackSystem
         DriverReview review1 = new DriverReview(fid, tid, cid, did, date, rating, comment, reasons);
         manager.addFeedback(review1);
 
+        Complaint complaint1 = new Complaint("F002", tid, cid, did, date, "Driver was 10 minutes late", "Pending");
+        manager.addFeedback(complaint1);
+
         // READ
         System.out.println("\n--- Current Feedback Records ---");
         for (Feedback f : manager.viewAllFeedbacks())
