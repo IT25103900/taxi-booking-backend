@@ -31,6 +31,7 @@ public class FeedbackManager
             {
                 feedbackList.set(i, updatedFeedback);
                 System.out.println("Feedback updated successfully!");
+                return;
             }
         }
         System.out.println("Feedback not found!");
