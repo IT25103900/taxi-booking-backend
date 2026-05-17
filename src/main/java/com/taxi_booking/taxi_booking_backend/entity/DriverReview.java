@@ -1,5 +1,7 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
+import java.time.LocalDate;
+
 public class DriverReview extends Feedback
 {
 
@@ -8,7 +10,7 @@ public class DriverReview extends Feedback
     private String[] suggestedReasons;
 
     public DriverReview(String feedbackId, String tripId, String customerId, String driverId,
-                        String date, int rating, String comment, String[] suggestedReasons)
+                        LocalDate date, int rating, String comment, String[] suggestedReasons)
     {
         super(feedbackId, tripId, customerId, driverId, date);
         this.rating = rating;
@@ -43,7 +45,6 @@ public class DriverReview extends Feedback
         this.suggestedReasons = suggestedReasons;
     }
 
-
     @Override
     public void displayDetails()
     {
@@ -63,6 +64,7 @@ public class DriverReview extends Feedback
             System.out.println("Reasons     : None");
         }
 
+        System.out.println("Date        : " + getDate());
         System.out.println("---------------------");
     }
 }
