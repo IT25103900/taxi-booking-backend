@@ -1,5 +1,6 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
+import com.taxi_booking.taxi_booking_backend.entity.enums.ReviewStatus;
 import java.time.LocalDate;
 
 public class DriverReview extends Feedback
@@ -46,6 +47,21 @@ public class DriverReview extends Feedback
     }
 
     @Override
+    public void processAssessment()
+    {
+        if (this.rating == 5)
+        {
+            setStatus(ReviewStatus.APPROVED);
+            System.out.println("5-Star review auto-approved! Driver rating updated.");
+        }
+        else
+        {
+            setStatus(ReviewStatus.PENDING);
+            System.out.println("Review set to PENDING for moderation.");
+        }
+    }
+
+    @Override
     public void displayDetails()
     {
         System.out.println("--- Driver Review ---");
@@ -55,7 +71,7 @@ public class DriverReview extends Feedback
         System.out.println("Comment     : " + comment);
 
         // Check if the array is empty before printing
-        if (suggestedReasons != null)
+        if (suggestedReasons != null && suggestedReasons.length > 0)
         {
             System.out.println("Reasons     : " + String.join(", ", suggestedReasons));
         }
