@@ -7,7 +7,7 @@ public abstract class Feedback
     private String tripId;
     private String customerId;
     private String driverId;
-    private LocalDate date;;
+    private LocalDate date;
 
     public Feedback(String feedbackId, String tripId, String customerId, String driverId, LocalDate date)
     {
