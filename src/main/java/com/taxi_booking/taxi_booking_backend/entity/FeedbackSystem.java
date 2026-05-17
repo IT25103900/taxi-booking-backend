@@ -1,6 +1,7 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class FeedbackSystem
 {
@@ -24,8 +25,22 @@ public class FeedbackSystem
         System.out.print("Enter Driver ID: ");
         String did = sc.nextLine();
 
-        System.out.print("Enter Date: ");
-        String date = sc.nextLine();
+        LocalDate date = null;
+        while (date == null)
+        {
+            System.out.print("Enter Date (YYYY-MM-DD): ");
+            String dateString = sc.nextLine();
+
+            // Check if text length is 10 and hyphens are in the correct positions
+            if (dateString.length() == 10 && dateString.charAt(4) == '-' && dateString.charAt(7) == '-')
+            {
+                date = LocalDate.parse(dateString);
+            }
+            else
+            {
+                System.out.println("Invalid date format! Please use YYYY-MM-DD.");
+            }
+        }
 
         System.out.print("Enter Rating (1-5): ");
         int rating = sc.nextInt();
@@ -53,7 +68,7 @@ public class FeedbackSystem
         // UPDATE
         System.out.println("\n--- Testing Update Operation ---");
         DriverReview updatedReview = new DriverReview(fid, tid, cid, did, date, 5, "Updated Comment: Excellent!", reasons);
-        manager.updateFeedback(updatedReview);
+        manager.updateFeedback(fid, updatedReview);
 
 
         // DELETE
