@@ -1,4 +1,5 @@
 package com.taxi_booking.taxi_booking_backend.entity;
+import java.time.LocalDate;
 
 public abstract class Feedback
 {
@@ -6,9 +7,9 @@ public abstract class Feedback
     private String tripId;
     private String customerId;
     private String driverId;
-    private String date;
+    private LocalDate date;;
 
-    public Feedback(String feedbackId, String tripId, String customerId, String driverId, String date)
+    public Feedback(String feedbackId, String tripId, String customerId, String driverId, LocalDate date)
     {
         this.feedbackId = feedbackId;
         this.tripId = tripId;
@@ -53,11 +54,11 @@ public abstract class Feedback
         this.driverId = driverId;
     }
 
-    public String getDate()
+    public LocalDate getDate()
     {
         return date;
     }
-    public void setDate(String date)
+    public void setDate(LocalDate date)
     {
         this.date = date;
     }
