@@ -1,5 +1,6 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
+import com.taxi_booking.taxi_booking_backend.entity.enums.ReviewStatus;
 import java.util.Scanner;
 import java.time.LocalDate;
 
@@ -52,10 +53,10 @@ public class FeedbackSystem
         String[] reasons = {"Polite", "Professional"};
 
         DriverReview review1 = new DriverReview(fid, tid, cid, did, date, rating, comment, reasons);
-        manager.addFeedback(review1);
+        manager.submitReview(review1);
 
-        Complaint complaint1 = new Complaint("F002", tid, cid, did, date, "Driver was 10 minutes late", "Pending");
-        manager.addFeedback(complaint1);
+        Complaint complaint1 = new Complaint("F002", tid, cid, did, date, "Driver was 10 minutes late", "HIGH");
+        manager.submitReview(complaint1);
 
 
         // READ
@@ -67,14 +68,13 @@ public class FeedbackSystem
 
         // UPDATE
         System.out.println("\n--- Testing Update Operation ---");
-        DriverReview updatedReview = new DriverReview(fid, tid, cid, did, date, 5, "Updated Comment: Excellent!", reasons);
-        manager.updateFeedback(fid, updatedReview);
+        manager.updateReviewVisibility(fid, ReviewStatus.APPROVED);
 
 
         // DELETE
         System.out.print("\nEnter Feedback ID to delete: ");
         String delId = sc.next();
-        manager.deleteFeedback(delId);
+        manager.deleteInappropriateReview(delId);
 
         System.out.println("\n--- Final Record Status ---");
         if (manager.viewAllFeedbacks().isEmpty())
