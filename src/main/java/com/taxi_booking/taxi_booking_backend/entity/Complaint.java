@@ -1,4 +1,5 @@
 package com.taxi_booking.taxi_booking_backend.entity;
+import java.time.LocalDate;
 
 public class Complaint extends Feedback
 {
@@ -7,7 +8,7 @@ public class Complaint extends Feedback
     private String status;
 
     public Complaint(String feedbackId, String tripId, String customerId, String driverId,
-                     String date, String complaintReason, String status)
+                     LocalDate date, String complaintReason, String status)
     {
         super(feedbackId, tripId, customerId, driverId, date);
         this.complaintReason = complaintReason;
