@@ -21,13 +21,13 @@ public class FeedbackManager
         return feedbackList;
     }
 
-    // UPDATE - find by ID and replace
-    public void updateFeedback(Feedback updatedFeedback)
+    // UPDATE
+    public void updateFeedback(String id, Feedback updatedFeedback)
     {
         for (int i = 0; i < feedbackList.size(); i++)
         {
-            // Check if IDs match
-            if (feedbackList.get(i).getFeedbackId().equals(updatedFeedback.getFeedbackId()))
+            // Check if the current item's ID matches the provided 'id' parameter
+            if (feedbackList.get(i).getFeedbackId().equals(id))
             {
                 feedbackList.set(i, updatedFeedback);
                 System.out.println("Feedback updated successfully!");
