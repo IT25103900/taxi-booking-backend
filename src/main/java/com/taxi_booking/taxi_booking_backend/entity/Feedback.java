@@ -1,4 +1,6 @@
 package com.taxi_booking.taxi_booking_backend.entity;
+
+import com.taxi_booking.taxi_booking_backend.entity.enums.ReviewStatus;
 import java.time.LocalDate;
 
 public abstract class Feedback
@@ -8,6 +10,7 @@ public abstract class Feedback
     private String customerId;
     private String driverId;
     private LocalDate date;
+    private ReviewStatus status;
 
     public Feedback(String feedbackId, String tripId, String customerId, String driverId, LocalDate date)
     {
@@ -16,6 +19,7 @@ public abstract class Feedback
         this.customerId = customerId;
         this.driverId = driverId;
         this.date = date;
+        this.status = ReviewStatus.PENDING;
     }
 
     public String getFeedbackId()
@@ -63,7 +67,16 @@ public abstract class Feedback
         this.date = date;
     }
 
+    public ReviewStatus getStatus()
+    {
+        return status;
+    }
+    public void setStatus(ReviewStatus status)
+    {
+        this.status = status;
+    }
 
+    public abstract void processAssessment();
     public abstract void displayDetails();
 
 }
