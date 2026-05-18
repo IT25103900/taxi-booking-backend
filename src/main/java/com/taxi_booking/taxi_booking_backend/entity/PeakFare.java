@@ -31,6 +31,7 @@ public class PeakFare extends PricingModel {
                         + (distance * getDistanceMultiplier())
                         + (time * 20);
 
-        return baseFare * surgeMultiplier;
+        double finalFare = baseFare * surgeMultiplier;
+        return finalFare;
     }
 }
