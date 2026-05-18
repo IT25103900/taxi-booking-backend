@@ -18,8 +18,6 @@ public class VehicleController {
     @Autowired
     private VehicleManager vehicleManager;
 
-    // ADD ENDPOINTS
-
     // Add a new Car
     @PostMapping("/add/car")
     public String addCar(@RequestBody Car car) {
@@ -68,15 +66,18 @@ public class VehicleController {
         return isUpdated ? "Sedan updated successfully!" : "Update Failed: Sedan with ID " + id + " not found!";
     }
 
-    // Update an existing vehicle
-    @PutMapping("/update/{id}")
-    public String updateVehicle(@PathVariable String id, @RequestBody Vehicle vehicle) {
-        boolean isUpdated = vehicleManager.updateVehicle(id, vehicle);
-        if (isUpdated) {
-            return "Vehicle updated successfully!";
-        } else {
-            return "Update Failed: Vehicle with ID " + id + " not found!";
-        }
+    // Update a Bike
+    @PutMapping("/update/bike/{id}")
+    public String updateBike(@PathVariable String id, @RequestBody Bike bike) {
+        boolean isUpdated = vehicleManager.updateVehicle(id, bike);
+        return isUpdated ? "Bike updated successfully!" : "Update Failed: Bike with ID " + id + " not found!";
+    }
+
+    // Update a Van
+    @PutMapping("/update/van/{id}")
+    public String updateVan(@PathVariable String id, @RequestBody Van van) {
+        boolean isUpdated = vehicleManager.updateVehicle(id, van);
+        return isUpdated ? "Van updated successfully!" : "Update Failed: Van with ID " + id + " not found!";
     }
 
     // Delete a vehicle from the system
