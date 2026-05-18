@@ -54,7 +54,21 @@ public class VehicleController {
         return vehicleManager.getAllVehicles();
     }
 
-    // Update an existing vehicle (We will change this in the next commit)
+    // Update a Car
+    @PutMapping("/update/car/{id}")
+    public String updateCar(@PathVariable String id, @RequestBody Car car) {
+        boolean isUpdated = vehicleManager.updateVehicle(id, car);
+        return isUpdated ? "Car updated successfully!" : "Update Failed: Car with ID " + id + " not found!";
+    }
+
+    // Update a Sedan
+    @PutMapping("/update/sedan/{id}")
+    public String updateSedan(@PathVariable String id, @RequestBody Sedan sedan) {
+        boolean isUpdated = vehicleManager.updateVehicle(id, sedan);
+        return isUpdated ? "Sedan updated successfully!" : "Update Failed: Sedan with ID " + id + " not found!";
+    }
+
+    // Update an existing vehicle
     @PutMapping("/update/{id}")
     public String updateVehicle(@PathVariable String id, @RequestBody Vehicle vehicle) {
         boolean isUpdated = vehicleManager.updateVehicle(id, vehicle);
