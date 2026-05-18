@@ -1,7 +1,7 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
-import com.taxi_booking.taxi_booking_backend.enums.FuelType;
-import com.taxi_booking.taxi_booking_backend.enums.CarType;
+import com.taxi_booking.taxi_booking_backend.entity.enums.FuelType;
+import com.taxi_booking.taxi_booking_backend.entity.enums.CarType;
 
 public class Car extends Vehicle {
     private int numberOfSeats;
