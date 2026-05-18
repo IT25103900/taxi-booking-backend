@@ -9,12 +9,20 @@ public class StandardFare extends PricingModel {
     }
 
     public StandardFare(double baseRate, double distanceMultiplier) {
+
         super(baseRate, distanceMultiplier);
     }
 
     @Override
     public double calculateTotalFare(double distance, double time) {
 
-        return getBaseRate() + (distance * getDistanceMultiplier()) + (time * 20);
+        double totalFare =
+                getBaseRate()
+                        + (distance * getDistanceMultiplier())
+                        + (time * 20);
+
+        return totalFare;
+
+
     }
 }
