@@ -18,11 +18,17 @@ public class PricingController {
 
     @PostMapping("/estimate-fare")
     public double getFareEstimate(@RequestBody PricingDto request) {
+        // Validate distance input
+        if (request.getDistance() <= 0) {
+            throw new RuntimeException("Invalid distance");
+        }
+
         return pricingService.estimateFare(request);
     }
 
     @PostMapping("/add-rate")
     public PricingModel addPricing(@RequestBody PricingModel model) {
+
         return pricingService.createRateTable(model);
     }
 

@@ -1,4 +1,1 @@
-com\taxi_booking\taxi_booking_backend\entity\User.class
-com\taxi_booking\taxi_booking_backend\entity\UserRole.class
-com\taxi_booking\taxi_booking_backend\controller\HealthController.class
 com\taxi_booking\taxi_booking_backend\TaxiBookingBackendApplication.class
