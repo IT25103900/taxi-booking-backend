@@ -1,7 +1,6 @@
 package com.taxi_booking.taxi_booking_backend.service;
 
 import com.taxi_booking.taxi_booking_backend.entity.Vehicle;
-import com.taxi_booking.taxi_booking_backend.exception.VehicleNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
