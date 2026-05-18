@@ -1,6 +1,8 @@
 package com.taxi_booking.taxi_booking_backend.controller;
 
 import com.taxi_booking.taxi_booking_backend.entity.Vehicle;
+import com.taxi_booking.taxi_booking_backend.entity.Car;
+import com.taxi_booking.taxi_booking_backend.entity.Sedan;
 import com.taxi_booking.taxi_booking_backend.service.VehicleManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +16,19 @@ public class VehicleController {
     @Autowired
     private VehicleManager vehicleManager;
 
-    // Add a new vehicle to the system
-    @PostMapping("/add")
-    public String addVehicle(@RequestBody Vehicle vehicle) {
-        vehicleManager.addVehicle(vehicle);
-        return "Vehicle added successfully to the system!";
+    // ADD ENDPOINTS
+    // Add a new Car
+    @PostMapping("/add/car")
+    public String addCar(@RequestBody Car car) {
+        vehicleManager.addVehicle(car);
+        return "Car added successfully to the system!";
+    }
+
+    // Add a new Sedan
+    @PostMapping("/add/sedan")
+    public String addSedan(@RequestBody Sedan sedan) {
+        vehicleManager.addVehicle(sedan);
+        return "Sedan added successfully to the system!";
     }
 
     // View all vehicles in the system
@@ -27,12 +37,10 @@ public class VehicleController {
         return vehicleManager.getAllVehicles();
     }
 
-    // Update an existing vehicle in the system
+    // Update an existing vehicle (We will change this later)
     @PutMapping("/update/{id}")
     public String updateVehicle(@PathVariable String id, @RequestBody Vehicle vehicle) {
         boolean isUpdated = vehicleManager.updateVehicle(id, vehicle);
-
-        // Check if the update was successful
         if (isUpdated) {
             return "Vehicle updated successfully!";
         } else {
@@ -44,8 +52,6 @@ public class VehicleController {
     @DeleteMapping("/delete/{id}")
     public String deleteVehicle(@PathVariable String id) {
         boolean isDeleted = vehicleManager.deleteVehicle(id);
-
-        // Check if the deletion was successful
         if (isDeleted) {
             return "Vehicle deleted successfully!";
         } else {
