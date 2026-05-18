@@ -1,10 +1,13 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
+import com.taxi_booking.taxi_booking_backend.enums.FuelType;
+import com.taxi_booking.taxi_booking_backend.enums.CarType;
+
 public class Sedan extends Car {
     private double bootSpace;
     private boolean hasSunroof;
 
-    public Sedan(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable, int numberOfSeats, String fuelType, String carType, double bootSpace, boolean hasSunroof) {
+    public Sedan(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable, int numberOfSeats, FuelType fuelType, CarType carType, double bootSpace, boolean hasSunroof) {
         super(vehicleId, brand, model, pricePerKm, isAvailable, numberOfSeats, fuelType, carType);
         this.bootSpace = bootSpace;
         this.hasSunroof = hasSunroof;
