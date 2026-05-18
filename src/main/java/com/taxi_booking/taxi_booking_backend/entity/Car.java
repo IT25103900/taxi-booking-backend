@@ -1,9 +1,12 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
+import com.taxi_booking.taxi_booking_backend.enums.FuelType;
+import com.taxi_booking.taxi_booking_backend.enums.CarType;
+
 public class Car extends Vehicle {
     private int numberOfSeats;
-    private String fuelType;
-    private String carType;
+    private FuelType fuelType;
+    private CarType carType;
 
     public Car(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable, int numberOfSeats, String fuelType, String carType) {
         super(vehicleId, brand, model, pricePerKm, isAvailable);
