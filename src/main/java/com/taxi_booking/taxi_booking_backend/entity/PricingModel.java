@@ -30,7 +30,13 @@ public abstract class PricingModel {
     }
 
     public void setBaseRate(double baseRate) {
-        this.baseRate = baseRate;
+
+        // Prevent negative base rates
+        if (baseRate < 0) {
+            this.baseRate = 0;
+        } else {
+            this.baseRate = baseRate;
+        }
     }
 
     public double getDistanceMultiplier() {
@@ -38,7 +44,13 @@ public abstract class PricingModel {
     }
 
     public void setDistanceMultiplier(double distanceMultiplier) {
-        this.distanceMultiplier = distanceMultiplier;
+
+        // Prevent negative distance multipliers
+        if (distanceMultiplier < 0) {
+            this.distanceMultiplier = 0;
+        } else {
+            this.distanceMultiplier = distanceMultiplier;
+        }
     }
 
     public abstract double calculateTotalFare(double distance, double time);
