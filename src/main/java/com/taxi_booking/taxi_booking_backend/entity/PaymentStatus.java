@@ -1,4 +1,4 @@
-package com.dashdrive.backend.entity.enums;
+package com.taxi_booking.taxi_booking_backend.entity;
 
 public enum PaymentStatus {
     PAID,
