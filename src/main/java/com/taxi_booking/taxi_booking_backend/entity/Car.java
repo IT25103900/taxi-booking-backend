@@ -8,7 +8,7 @@ public class Car extends Vehicle {
     private FuelType fuelType;
     private CarType carType;
 
-    public Car(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable, int numberOfSeats, String fuelType, String carType) {
+    public Car(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable, int numberOfSeats, FuelType fuelType, CarType carType) {
         super(vehicleId, brand, model, pricePerKm, isAvailable);
         this.numberOfSeats = numberOfSeats;
         this.fuelType = fuelType;
@@ -22,17 +22,17 @@ public class Car extends Vehicle {
         this.numberOfSeats = numberOfSeats;
     }
 
-    public String getFuelType() {
+    public FuelType getFuelType() {
         return fuelType;
     }
-    public void setFuelType(String fuelType) {
+    public void setFuelType(FuelType fuelType) {
         this.fuelType = fuelType;
     }
 
-    public String getCarType() {
+    public CarType getCarType() {
         return carType;
     }
-    public void setCarType(String carType) {
+    public void setCarType(CarType carType) {
         this.carType = carType;
     }
 
