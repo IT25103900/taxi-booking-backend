@@ -1,65 +1,51 @@
-package com.dashdrive.backend.entity;
+// entity/Payment.java
+package com.taxi_booking.taxi_booking_backend.entity;
 
-import com.dashdrive.backend.entity.enums.PaymentStatus;
+import com.taxi_booking.taxi_booking_backend.entity.enums.PaymentStatus;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "payments")
 public abstract class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long paymentId;
+    private Long id;
 
-    private Double baseAmount;
-
+    private Long bookingId;
+    private double baseAmount;
+    private String receiptId;
     private LocalDateTime paymentDate;
 
-    private String receiptId;
-
     @Enumerated(EnumType.STRING)
-    private PaymentStatus paymentStatus;
+    private PaymentStatus status;
 
-    public abstract Double calculateFinalTotal();
+    // Constructors
+    public Payment() {}
 
-    public Long getPaymentId() {
-        return paymentId;
-    }
-
-    public void setPaymentId(Long paymentId) {
-        this.paymentId = paymentId;
-    }
-
-    public Double getBaseAmount() {
-        return baseAmount;
-    }
-
-    public void setBaseAmount(Double baseAmount) {
+    public Payment(Long bookingId, double baseAmount) {
+        this.bookingId = bookingId;
         this.baseAmount = baseAmount;
+        this.paymentDate = LocalDateTime.now();
+        this.status = PaymentStatus.PENDING;
+        this.receiptId = "RCP-" + System.currentTimeMillis();
     }
 
-    public LocalDateTime getPaymentDate() {
-        return paymentDate;
-    }
+    // Abstract method — POLYMORPHISM
+    public abstract double calculateFinalTotal();
 
-    public void setPaymentDate(LocalDateTime paymentDate) {
-        this.paymentDate = paymentDate;
-    }
-
-    public String getReceiptId() {
-        return receiptId;
-    }
-
-    public void setReceiptId(String receiptId) {
-        this.receiptId = receiptId;
-    }
-
-    public PaymentStatus getPaymentStatus() {
-        return paymentStatus;
-    }
-
-    public void setPaymentStatus(PaymentStatus paymentStatus) {
-        this.paymentStatus = paymentStatus;
-    }
+    // Getters & Setters
+    public Long getId() { return id; }
+    public Long getBookingId() { return bookingId; }
+    public void setBookingId(Long bookingId) { this.bookingId = bookingId; }
+    public double getBaseAmount() { return baseAmount; }
+    public void setBaseAmount(double baseAmount) { this.baseAmount = baseAmount; }
+    public String getReceiptId() { return receiptId; }
+    public void setReceiptId(String receiptId) { this.receiptId = receiptId; }
+    public LocalDateTime getPaymentDate() { return paymentDate; }
+    public void setPaymentDate(LocalDateTime paymentDate) { this.paymentDate = paymentDate; }
+    public PaymentStatus getStatus() { return status; }
+    public void setStatus(PaymentStatus status) { this.status = status; }
 }
