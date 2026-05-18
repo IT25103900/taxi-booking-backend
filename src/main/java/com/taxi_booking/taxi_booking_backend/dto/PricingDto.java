@@ -14,7 +14,12 @@ public class PricingDto {
     }
 
     public void setDistance(double distance) {
-        this.distance = distance;
+
+        if (distance < 0) {
+            this.distance = 0;
+        } else {
+            this.distance = distance;
+        }
     }
 
     public double getTime() {
