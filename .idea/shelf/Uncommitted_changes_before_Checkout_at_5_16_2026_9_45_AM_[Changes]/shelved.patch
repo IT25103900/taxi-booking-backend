@@ -1,0 +1,370 @@
+Index: src/main/java/com/taxi_booking/taxi_booking_backend/repository/PaymentRepository.java
+===================================================================
+diff --git a/src/main/java/com/taxi_booking/taxi_booking_backend/repository/PaymentRepository.java b/src/main/java/com/taxi_booking/taxi_booking_backend/repository/PaymentRepository.java
+deleted file mode 100644
+--- a/src/main/java/com/taxi_booking/taxi_booking_backend/repository/PaymentRepository.java	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
++++ /dev/null	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
+@@ -1,7 +0,0 @@
+-package com.taxi_booking.taxi_booking_backend.repository;
+-
+-import com.taxi_booking.taxi_booking_backend.entity.Payment;
+-import org.springframework.data.jpa.repository.JpaRepository;
+-
+-public interface PaymentRepository extends JpaRepository<Payment, Long> {
+-}
+Index: src/main/java/com/taxi_booking/taxi_booking_backend/entity/CashPayment.java
+===================================================================
+diff --git a/src/main/java/com/taxi_booking/taxi_booking_backend/entity/CashPayment.java b/src/main/java/com/taxi_booking/taxi_booking_backend/entity/CashPayment.java
+deleted file mode 100644
+--- a/src/main/java/com/taxi_booking/taxi_booking_backend/entity/CashPayment.java	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
++++ /dev/null	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
+@@ -1,20 +0,0 @@
+-package com.taxi_booking.taxi_booking_backend.entity;
+-
+-import jakarta.persistence.Entity;
+-
+-@Entity
+-public class CashPayment extends Payment {
+-
+-    public CashPayment() {
+-    }
+-
+-    public CashPayment(Double amount, Long bookingId) {
+-        super(amount, bookingId);
+-    }
+-
+-    @Override
+-    public String processPayment() {
+-        setPaymentStatus(PaymentStatus.PAID);
+-        return "Cash collected by driver successfully.";
+-    }
+-}
+\ No newline at end of file
+Index: src/main/java/com/taxi_booking/taxi_booking_backend/entity/PaymentStatus.java
+===================================================================
+diff --git a/src/main/java/com/taxi_booking/taxi_booking_backend/entity/PaymentStatus.java b/src/main/java/com/taxi_booking/taxi_booking_backend/entity/PaymentStatus.java
+deleted file mode 100644
+--- a/src/main/java/com/taxi_booking/taxi_booking_backend/entity/PaymentStatus.java	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
++++ /dev/null	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
+@@ -1,7 +0,0 @@
+-package com.taxi_booking.taxi_booking_backend.entity;
+-
+-public class PaymentStatus {
+-    PENDING,
+-    PAID,
+-    FAILED
+-}
+Index: src/main/java/com/taxi_booking/taxi_booking_backend/dto/PaymentInvoiceDto.java
+===================================================================
+diff --git a/src/main/java/com/taxi_booking/taxi_booking_backend/dto/PaymentInvoiceDto.java b/src/main/java/com/taxi_booking/taxi_booking_backend/dto/PaymentInvoiceDto.java
+deleted file mode 100644
+--- a/src/main/java/com/taxi_booking/taxi_booking_backend/dto/PaymentInvoiceDto.java	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
++++ /dev/null	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
+@@ -1,41 +0,0 @@
+-package com.taxi_booking.taxi_booking_backend.dto;
+-
+-public class PaymentInvoiceDto {
+-
+-    private Double amount;
+-    private Long bookingId;
+-    private String paymentType;
+-    private String cardNumber;
+-
+-    public Double getAmount() {
+-        return amount;
+-    }
+-
+-    public void setAmount(Double amount) {
+-        this.amount = amount;
+-    }
+-
+-    public Long getBookingId() {
+-        return bookingId;
+-    }
+-
+-    public void setBookingId(Long bookingId) {
+-        this.bookingId = bookingId;
+-    }
+-
+-    public String getPaymentType() {
+-        return paymentType;
+-    }
+-
+-    public void setPaymentType(String paymentType) {
+-        this.paymentType = paymentType;
+-    }
+-
+-    public String getCardNumber() {
+-        return cardNumber;
+-    }
+-
+-    public void setCardNumber(String cardNumber) {
+-        this.cardNumber = cardNumber;
+-    }
+-}
+\ No newline at end of file
+Index: src/main/java/com/taxi_booking/taxi_booking_backend/entity/CardPayment.java
+===================================================================
+diff --git a/src/main/java/com/taxi_booking/taxi_booking_backend/entity/CardPayment.java b/src/main/java/com/taxi_booking/taxi_booking_backend/entity/CardPayment.java
+deleted file mode 100644
+--- a/src/main/java/com/taxi_booking/taxi_booking_backend/entity/CardPayment.java	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
++++ /dev/null	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
+@@ -1,37 +0,0 @@
+-package com.taxi_booking.taxi_booking_backend.entity;
+-
+-import jakarta.persistence.Entity;
+-
+-@Entity
+-public class CardPayment extends Payment {
+-
+-    private String cardNumber;
+-
+-    public CardPayment() {
+-    }
+-
+-    public CardPayment(Double amount, Long bookingId, String cardNumber) {
+-        super(amount, bookingId);
+-        this.cardNumber = cardNumber;
+-    }
+-
+-    @Override
+-    public String processPayment() {
+-
+-        if(cardNumber.length() >= 4) {
+-            setPaymentStatus(PaymentStatus.PAID);
+-            return "Connected to VISA API. Payment Successful.";
+-        }
+-
+-        setPaymentStatus(PaymentStatus.FAILED);
+-        return "Payment Failed.";
+-    }
+-
+-    public String getCardNumber() {
+-        return cardNumber;
+-    }
+-
+-    public void setCardNumber(String cardNumber) {
+-        this.cardNumber = cardNumber;
+-    }
+-}
+\ No newline at end of file
+Index: src/main/java/com/taxi_booking/taxi_booking_backend/controller/PaymentController.java
+===================================================================
+diff --git a/src/main/java/com/taxi_booking/taxi_booking_backend/controller/PaymentController.java b/src/main/java/com/taxi_booking/taxi_booking_backend/controller/PaymentController.java
+deleted file mode 100644
+--- a/src/main/java/com/taxi_booking/taxi_booking_backend/controller/PaymentController.java	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
++++ /dev/null	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
+@@ -1,41 +0,0 @@
+-package com.taxi_booking.taxi_booking_backend.controller;
+-
+-import com.taxi_booking.taxi_booking_backend.dto.PaymentInvoiceDto;
+-import com.taxi_booking.taxi_booking_backend.entity.Payment;
+-import com.taxi_booking.taxi_booking_backend.entity.PaymentStatus;
+-import com.taxi_booking.taxi_booking_backend.service.PaymentService;
+-
+-import org.springframework.beans.factory.annotation.Autowired;
+-import org.springframework.web.bind.annotation.*;
+-
+-import java.util.List;
+-
+-@RestController
+-@RequestMapping("/payments")
+-@CrossOrigin("*")
+-public class PaymentController {
+-
+-    @Autowired
+-    private PaymentService paymentService;
+-
+-    // CREATE
+-    @PostMapping("/invoice")
+-    public String generateInvoice(@RequestBody PaymentInvoiceDto dto) {
+-        return paymentService.generateInvoice(dto);
+-    }
+-
+-    // READ
+-    @GetMapping
+-    public List<Payment> getAllPayments() {
+-        return paymentService.viewBillingHistory();
+-    }
+-
+-    // UPDATE
+-    @PutMapping("/{id}")
+-    public Payment updateStatus(
+-            @PathVariable Long id,
+-            @RequestParam PaymentStatus status) {
+-
+-        return paymentService.updatePaymentStatus(id, status);
+-    }
+-}
+\ No newline at end of file
+Index: src/main/java/com/taxi_booking/taxi_booking_backend/entity/Payment.java
+===================================================================
+diff --git a/src/main/java/com/taxi_booking/taxi_booking_backend/entity/Payment.java b/src/main/java/com/taxi_booking/taxi_booking_backend/entity/Payment.java
+deleted file mode 100644
+--- a/src/main/java/com/taxi_booking/taxi_booking_backend/entity/Payment.java	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
++++ /dev/null	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
+@@ -1,69 +0,0 @@
+-package com.taxi_booking.taxi_booking_backend.entity;
+-
+-import jakarta.persistence.*;
+-import java.time.LocalDateTime;
+-
+-@Entity
+-@Inheritance(strategy = InheritanceType.JOINED)
+-public abstract class Payment {
+-
+-    @Id
+-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+-    private Long paymentId;
+-
+-    private Double amount;
+-
+-    private LocalDateTime paymentDate;
+-
+-    @Enumerated(EnumType.STRING)
+-    private PaymentStatus paymentStatus;
+-
+-    private Long bookingId;
+-
+-    // Constructors
+-    public Payment() {
+-    }
+-
+-    public Payment(Double amount, Long bookingId) {
+-        this.amount = amount;
+-        this.bookingId = bookingId;
+-        this.paymentDate = LocalDateTime.now();
+-        this.paymentStatus = PaymentStatus.PENDING;
+-    }
+-
+-    // Abstract Method (Polymorphism)
+-    public abstract String processPayment();
+-
+-    // Getters and Setters
+-    public Long getPaymentId() {
+-        return paymentId;
+-    }
+-
+-    public Double getAmount() {
+-        return amount;
+-    }
+-
+-    public void setAmount(Double amount) {
+-        this.amount = amount;
+-    }
+-
+-    public LocalDateTime getPaymentDate() {
+-        return paymentDate;
+-    }
+-
+-    public PaymentStatus getPaymentStatus() {
+-        return paymentStatus;
+-    }
+-
+-    public void setPaymentStatus(PaymentStatus paymentStatus) {
+-        this.paymentStatus = paymentStatus;
+-    }
+-
+-    public Long getBookingId() {
+-        return bookingId;
+-    }
+-
+-    public void setBookingId(Long bookingId) {
+-        this.bookingId = bookingId;
+-    }
+-}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d33b41f4-c855-47f8-b5fd-9badd443dc81\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/controller/PaymentController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/dto/PaymentInvoiceDto.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/CardPayment.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/CashPayment.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/Payment.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/repository/PaymentRepository.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/service/PaymentService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"3DZCKdnj8qimTIytujAadKnAAJ2\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.TaxiBookingBackendApplication.executor&quot;: &quot;Run&quot;,\r\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/OOP _Project/taxi-booking-backend&quot;\r\n  }\r\n}</component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d33b41f4-c855-47f8-b5fd-9badd443dc81\" name=\"Changes\" comment=\"\" />\r\n      <created>1778480142374</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1778480142374</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e13ce0193fd0251f2d5a3f1bd0ebc30adaa6d171)
++++ b/.idea/workspace.xml	(date 1778904541284)
+@@ -4,71 +4,29 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="d33b41f4-c855-47f8-b5fd-9badd443dc81" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/controller/PaymentController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/dto/PaymentInvoiceDto.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/CardPayment.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/CashPayment.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/entity/Payment.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/repository/PaymentRepository.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taxi_booking/taxi_booking_backend/service/PaymentService.java" afterDir="false" />
++    <list default="true" id="1efe8296-73d5-4d46-9262-1dc79d3008a5" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+-  </component>
+-  <component name="FileTemplateManagerImpl">
+-    <option name="RECENT_TEMPLATES">
+-      <list>
+-        <option value="Class" />
+-      </list>
+-    </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="IT25103897_payment_&amp;_billing_records" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="ProjectColorInfo">{
+-  &quot;associatedIndex&quot;: 1
+-}</component>
+-  <component name="ProjectId" id="3DZCKdnj8qimTIytujAadKnAAJ2" />
+-  <component name="ProjectViewState">
+-    <option name="hideEmptyMiddlePackages" value="true" />
+-    <option name="showLibraryContents" value="true" />
+-  </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Application.TaxiBookingBackendApplication.executor&quot;: &quot;Run&quot;,
+-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;D:/OOP _Project/taxi-booking-backend&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "git-widget-placeholder": "main",
++    "last_opened_file_path": "C:/1 . SLIIT/Semester 02/OOP/Group Project/Taxi/backend"
+   }
+-}</component>
++}]]></component>
+   <component name="TaskManager">
+-    <task active="true" id="Default" summary="Default task">
+-      <changelist id="d33b41f4-c855-47f8-b5fd-9badd443dc81" name="Changes" comment="" />
+-      <created>1778480142374</created>
+-      <option name="number" value="Default" />
+-      <option name="presentableId" value="Default" />
+-      <updated>1778480142374</updated>
+-    </task>
+     <servers />
+   </component>
+-  <component name="Vcs.Log.Tabs.Properties">
+-    <option name="TAB_STATES">
+-      <map>
+-        <entry key="MAIN">
+-          <value>
+-            <State />
+-          </value>
+-        </entry>
+-      </map>
+-    </option>
+-  </component>
+ </project>
+\ No newline at end of file
