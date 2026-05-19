@@ -1,42 +1,35 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Bike extends Vehicle {
 
-    private double engineCapacity;
-    private boolean hasHelmetStorage;
+    private boolean hasHelmet;
 
-    // Getters and Setters
-    public double getEngineCapacity() {
-        return engineCapacity;
-    }
-
-    public Bike(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable, double engineCapacity, boolean hasHelmetStorage) {
+    public Bike(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable, boolean hasHelmet) {
         super(vehicleId, brand, model, pricePerKm, isAvailable);
-        this.engineCapacity = engineCapacity;
-        this.hasHelmetStorage = hasHelmetStorage;
+        this.hasHelmet = hasHelmet;
     }
 
-    public void setEngineCapacity(double engineCapacity) {
-        this.engineCapacity = engineCapacity;
+    public Bike() {
+        super();
     }
 
-    public boolean hasHelmetStorage() {
-        return hasHelmetStorage;
+    public boolean isHasHelmet() {
+        return hasHelmet;
+    }
+    public void setHasHelmet(boolean hasHelmet) {
+        this.hasHelmet = hasHelmet;
     }
 
-    public void setHasHelmetStorage(boolean hasHelmetStorage) {
-        this.hasHelmetStorage = hasHelmetStorage;
-    }
-
-    // Override methods from Vehicle class
     @Override
     public void displayDetails() {
-        System.out.println("Displaying Bike details...");
+        System.out.println("Bike Details: " + brand + " " + model + " | Helmet Provided: " + hasHelmet);
     }
 
     @Override
     public double calculateMaintenanceCost() {
-        // Return a default value for now, you can add real calculations later
-        return 0.0;
+        return 1500.00;
     }
 }
