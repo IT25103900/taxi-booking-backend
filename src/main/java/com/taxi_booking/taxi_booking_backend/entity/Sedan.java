@@ -1,40 +1,36 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
-import com.taxi_booking.taxi_booking_backend.entity.enums.FuelType;
-import com.taxi_booking.taxi_booking_backend.entity.enums.CarType;
+import jakarta.persistence.Entity;
 
+@Entity
 public class Sedan extends Car {
-    private double bootSpace;
-    private boolean hasSunroof;
 
-    public Sedan(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable, int numberOfSeats, FuelType fuelType, CarType carType, double bootSpace, boolean hasSunroof) {
-        super(vehicleId, brand, model, pricePerKm, isAvailable, numberOfSeats, fuelType, carType);
-        this.bootSpace = bootSpace;
-        this.hasSunroof = hasSunroof;
-    }
+    private boolean hasLuxuryInterior;
 
-    public double getBootSpace() {
-        return bootSpace;
-    }
-    public void setBootSpace(double bootSpace) {
-        this.bootSpace = bootSpace;
+    public Sedan(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable, int seatingCapacity, boolean hasAC, boolean hasLuxuryInterior) {
+        super(vehicleId, brand, model, pricePerKm, isAvailable, seatingCapacity, hasAC);
+        this.hasLuxuryInterior = hasLuxuryInterior;
     }
 
-    public boolean isHasSunroof() {
-        return hasSunroof;
+    public Sedan() {
+        super();
     }
-    public void setHasSunroof(boolean hasSunroof) {
-        this.hasSunroof = hasSunroof;
+
+    public boolean isHasLuxuryInterior() {
+        return hasLuxuryInterior;
+    }
+    public void setHasLuxuryInterior(boolean hasLuxuryInterior) {
+        this.hasLuxuryInterior = hasLuxuryInterior;
     }
 
     @Override
     public void displayDetails() {
-        System.out.println("ID: " + vehicleId + " | Brand: " + brand + " | Model: " + model);
-        System.out.println("Boot Space: " + bootSpace + "L | Sunroof: " + hasSunroof);
+        super.displayDetails();
+        System.out.println("Luxury Interior: " + (hasLuxuryInterior ? "Yes" : "No"));
     }
 
     @Override
     public double calculateMaintenanceCost() {
-        return 6500.00;
+        return 7500.00;
     }
 }
