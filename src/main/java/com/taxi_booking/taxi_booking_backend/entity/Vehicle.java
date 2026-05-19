@@ -1,7 +1,18 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
+import jakarta.persistence.*;
+
+// Marks as a database entity
+@Entity
+
+// Creates separate tables for child classes and joins them using primary key (Car, Bike, Van)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Vehicle {
+
+    // Primary Key for the database table
+    @Id
     protected String vehicleId;
+
     protected String brand;
     protected String model;
     protected double pricePerKm;
@@ -50,7 +61,7 @@ public abstract class Vehicle {
         return isAvailable;
     }
     public void setAvailable(boolean available) {
-        isAvailable = available;
+        this.isAvailable = available;
     }
 
     public abstract void displayDetails();
