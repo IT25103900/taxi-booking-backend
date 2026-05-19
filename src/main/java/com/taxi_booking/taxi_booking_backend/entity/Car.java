@@ -1,45 +1,40 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
-import com.taxi_booking.taxi_booking_backend.entity.enums.FuelType;
-import com.taxi_booking.taxi_booking_backend.entity.enums.CarType;
+import jakarta.persistence.Entity;
 
+@Entity
 public class Car extends Vehicle {
-    private int numberOfSeats;
-    private FuelType fuelType;
-    private CarType carType;
 
-    public Car(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable, int numberOfSeats, FuelType fuelType, CarType carType) {
+    private int seatingCapacity;
+    private boolean hasAC;
+
+    public Car(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable, int seatingCapacity, boolean hasAC) {
         super(vehicleId, brand, model, pricePerKm, isAvailable);
-        this.numberOfSeats = numberOfSeats;
-        this.fuelType = fuelType;
-        this.carType = carType;
+        this.seatingCapacity = seatingCapacity;
+        this.hasAC = hasAC;
     }
 
-    public int getNumberOfSeats() {
-        return numberOfSeats;
-    }
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
+    public Car() {
+        super();
     }
 
-    public FuelType getFuelType() {
-        return fuelType;
+    public int getSeatingCapacity() {
+        return seatingCapacity;
     }
-    public void setFuelType(FuelType fuelType) {
-        this.fuelType = fuelType;
+    public void setSeatingCapacity(int seatingCapacity) {
+        this.seatingCapacity = seatingCapacity;
     }
 
-    public CarType getCarType() {
-        return carType;
+    public boolean isHasAC() {
+        return hasAC;
     }
-    public void setCarType(CarType carType) {
-        this.carType = carType;
+    public void setHasAC(boolean hasAC) {
+        this.hasAC = hasAC;
     }
 
     @Override
     public void displayDetails() {
-        System.out.println("ID: " + vehicleId + " | Brand: " + brand + " | Model: " + model);
-        System.out.println("Seats: " + numberOfSeats + " | Fuel: " + fuelType + " | Type: " + carType);
+        System.out.println("Car Details: " + brand + " " + model + " | Capacity: " + seatingCapacity + " | AC: " + hasAC);
     }
 
     @Override
