@@ -8,9 +8,7 @@ public class TaxiBookingBackendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TaxiBookingBackendApplication.class, args);
-		System.out.println("Hellow");
-		System.out.println("hello");
-		System.out.println("hyy");
+
 		System.out.println("username");
 	}
 
