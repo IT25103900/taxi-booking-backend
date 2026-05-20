@@ -10,4 +10,9 @@ public class Bike extends Vehicle {
     public int getPassengerCapacity() {
         return 1;
     }
+
+    @Override
+    public String getRequiredLicense() {
+        return "Class A - Motorcycle License Required";
+    }
 }

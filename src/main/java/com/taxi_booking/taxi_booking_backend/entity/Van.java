@@ -10,4 +10,9 @@ public class Van extends Vehicle {
     public int getPassengerCapacity() {
         return 8;
     }
+
+    @Override
+    public String getRequiredLicense() {
+        return "Class G1 - Light Transport / Passenger Van License Required";
+    }
 }

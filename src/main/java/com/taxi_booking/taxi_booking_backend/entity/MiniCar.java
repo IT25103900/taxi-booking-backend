@@ -10,4 +10,9 @@ public class MiniCar extends Vehicle {
     public int getPassengerCapacity() {
         return 4;
     }
+
+    @Override
+    public String getRequiredLicense() {
+        return "Class B - Light Motor Vehicle License (Auto/Manual)";
+    }
 }
