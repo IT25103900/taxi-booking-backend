@@ -24,6 +24,9 @@ public abstract class Vehicle {
     // OOP Polymorphism: Overridden by subclasses to return type-specific capacity
     public abstract int getPassengerCapacity();
 
+    // OOP Polymorphism: Overridden by subclasses to return required license type
+    public abstract String getRequiredLicense();
+
     public Long getId() {
         return id;
     }
