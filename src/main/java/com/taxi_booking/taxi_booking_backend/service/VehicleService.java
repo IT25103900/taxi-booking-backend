@@ -52,6 +52,22 @@ public class VehicleService {
         return vehicleRepository.save(vehicle);
     }
 
-    public List<Vehicle> getVehiclesByDriver(Long driverId) { return vehicleRepository.findByDriverId(driverId); }
-    public void removeVehicle(Long id) { vehicleRepository.deleteById(id); }
+    public List<Vehicle> getVehiclesByDriver(Long driverId) {
+        return vehicleRepository.findByDriverId(driverId);
+    }
+
+    public void removeVehicle(Long id) {
+        vehicleRepository.deleteById(id);
+    }
+
+    public String getRequiredLicense(Long id) {
+        java.util.Optional<Vehicle> result = vehicleRepository.findById(id);
+
+        if (result.isPresent()) {
+            Vehicle vehicle = result.get();
+            return vehicle.getRequiredLicense();
+        } else {
+            throw new RuntimeException("Vehicle not found.");
+        }
+    }
 }
