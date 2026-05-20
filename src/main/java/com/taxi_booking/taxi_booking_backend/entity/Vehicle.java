@@ -1,44 +1,57 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
+import com.taxi_booking.taxi_booking_backend.entity.enums.VehicleStatus;
 import jakarta.persistence.*;
 
-// Marks as a database entity
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 
-// Creates separate tables for child classes and joins them using primary key (Car, Bike, Van)
-@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "vehicle_category", discriminatorType = DiscriminatorType.STRING)
+
 public abstract class Vehicle {
-
-    // Primary Key for the database table
     @Id
-    protected String vehicleId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    protected String brand;
-    protected String model;
-    protected double pricePerKm;
-    protected boolean isAvailable;
+    private String licensePlate;
+    private Long driverId;
+    private String brand;
+    private String model;
 
-    public Vehicle(String vehicleId, String brand, String model, double pricePerKm, boolean isAvailable) {
-        this.vehicleId = vehicleId;
-        this.brand = brand;
-        this.model = model;
-        this.pricePerKm = pricePerKm;
-        this.isAvailable = isAvailable;
+    @Enumerated(EnumType.STRING)
+    private VehicleStatus status;
+
+    // OOP Polymorphism: Overridden by subclasses to return type-specific capacity
+    public abstract int getPassengerCapacity();
+
+    public Long getId() {
+        return id;
     }
 
-    public Vehicle() {
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getVehicleId() {
-        return vehicleId;
+    public String getLicensePlate() {
+        return licensePlate;
     }
-    public void setVehicleId(String vehicleId) {
-        this.vehicleId = vehicleId;
+
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
+    }
+
+    public Long getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(Long driverId) {
+        this.driverId = driverId;
     }
 
     public String getBrand() {
         return brand;
     }
+
     public void setBrand(String brand) {
         this.brand = brand;
     }
@@ -46,25 +59,16 @@ public abstract class Vehicle {
     public String getModel() {
         return model;
     }
+
     public void setModel(String model) {
         this.model = model;
     }
 
-    public double getPricePerKm() {
-        return pricePerKm;
-    }
-    public void setPricePerKm(double pricePerKm) {
-        this.pricePerKm = pricePerKm;
+    public VehicleStatus getStatus() {
+        return status;
     }
 
-    public boolean isAvailable() {
-        return isAvailable;
+    public void setStatus(VehicleStatus status) {
+        this.status = status;
     }
-    public void setAvailable(boolean available) {
-        this.isAvailable = available;
-    }
-
-    public abstract void displayDetails();
-
-    public abstract double calculateMaintenanceCost();
 }
