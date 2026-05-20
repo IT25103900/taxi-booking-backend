@@ -2,7 +2,6 @@ package com.taxi_booking.taxi_booking_backend.service;
 
 import com.taxi_booking.taxi_booking_backend.dto.PricingDto;
 import com.taxi_booking.taxi_booking_backend.entity.PeakFare;
-import com.taxi_booking.taxi_booking_backend.entity.PricingModel;
 import com.taxi_booking.taxi_booking_backend.entity.StandardFare;
 import com.taxi_booking.taxi_booking_backend.repository.PricingRepository;
 import org.springframework.stereotype.Service;
