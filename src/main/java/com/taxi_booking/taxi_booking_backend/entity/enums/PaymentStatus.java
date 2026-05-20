@@ -1,4 +1,6 @@
 package com.taxi_booking.taxi_booking_backend.entity.enums;
 
-public class PaymentStatus {
+public enum PaymentStatus {
+    PAID,
+    REFUNDED
 }
