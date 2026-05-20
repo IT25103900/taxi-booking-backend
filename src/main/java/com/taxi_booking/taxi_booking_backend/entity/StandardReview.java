@@ -3,15 +3,15 @@ package com.taxi_booking.taxi_booking_backend.entity;
 import com.taxi_booking.taxi_booking_backend.entity.enums.ReviewStatus;
 import java.time.LocalDate;
 
-public class DriverReview extends Feedback
+public class StandardReview extends DriverAssessment
 {
 
     private int rating;
     private String comment;
     private String[] suggestedReasons;
 
-    public DriverReview(String feedbackId, String tripId, String customerId, String driverId,
-                        LocalDate date, int rating, String comment, String[] suggestedReasons)
+    public StandardReview(String feedbackId, String tripId, String customerId, String driverId,
+                          LocalDate date, int rating, String comment, String[] suggestedReasons)
     {
         super(feedbackId, tripId, customerId, driverId, date);
         this.rating = rating;
