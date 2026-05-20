@@ -35,4 +35,9 @@ public class VehicleController {
         vehicleService.removeVehicle(id);
         return ResponseEntity.ok("Purged.");
     }
+
+    @GetMapping("/{id}/required-license")
+    public ResponseEntity<String> getRequiredLicense(@PathVariable Long id) {
+        return ResponseEntity.ok(vehicleService.getRequiredLicense(id));
+    }
 }
