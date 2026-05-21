@@ -1,6 +1,7 @@
 package com.taxi_booking.taxi_booking_backend.controller;
 
 import com.taxi_booking.taxi_booking_backend.dto.PaymentDto;
+import com.taxi_booking.taxi_booking_backend.entity.Payment;
 import com.taxi_booking.taxi_booking_backend.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
