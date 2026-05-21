@@ -1,5 +1,6 @@
 package com.taxi_booking.taxi_booking_backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.taxi_booking.taxi_booking_backend.entity.enums.PaymentStatus;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -19,14 +20,31 @@ public abstract class Payment {
     private Double baseAmount;
     private LocalDateTime paymentDate;
 
-    // FIXED: Removed the unnecessary @SerializedName annotation line
     @Enumerated(EnumType.STRING)
     private PaymentStatus status;
+
+    @Transient
+    private String paymentMethod;
+
+    @PostLoad
+    public void populatePaymentMethod() {
+        if (this instanceof com.taxi_booking.taxi_booking_backend.entity.CardPayment) {
+            this.paymentMethod = "CARD";
+        } else if (this instanceof com.taxi_booking.taxi_booking_backend.entity.CashPayment) {
+            this.paymentMethod = "CASH";
+        }
+    }
+
+    @JsonProperty("paymentMethod")
+    public String getPaymentMethod() {
+        if (this.paymentMethod == null) populatePaymentMethod();
+        return paymentMethod;
+    }
 
     // OOP Polymorphism: Abstract method to calculate total differently based on payment method
     public abstract Double calculateFinalTotal();
 
-    // Getters and Setters remain exactly the same as before...
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public Long getBookingId() { return bookingId; }
