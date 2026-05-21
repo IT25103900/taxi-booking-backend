@@ -3,6 +3,7 @@ package com.taxi_booking.taxi_booking_backend.service;
 import com.taxi_booking.taxi_booking_backend.dto.PaymentDto;
 import com.taxi_booking.taxi_booking_backend.entity.CardPayment;
 import com.taxi_booking.taxi_booking_backend.entity.CashPayment;
+import com.taxi_booking.taxi_booking_backend.entity.Payment;
 import com.taxi_booking.taxi_booking_backend.entity.enums.PaymentStatus;
 import com.taxi_booking.taxi_booking_backend.repository.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
