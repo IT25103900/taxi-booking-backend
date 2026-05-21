@@ -100,8 +100,7 @@ public class AssessmentService
             review.setRating(dto.getRating());
             review.setStatus(dto.getRating() == 5 ? ReviewStatus.APPROVED : ReviewStatus.PENDING);
         }
-        else if
-        (assessment instanceof SafetyReport)
+        else if (assessment instanceof SafetyReport)
         {
             SafetyReport report = (SafetyReport) assessment;
             report.setViolationType(dto.getViolationType());
