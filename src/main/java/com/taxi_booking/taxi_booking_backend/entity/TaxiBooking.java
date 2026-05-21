@@ -18,6 +18,7 @@ public abstract class TaxiBooking {
     private String dropoffLocation;
     private Double estimatedFare;
     private LocalDateTime orderTime;
+    private String requestedVehicleType;
 
     @Enumerated(EnumType.STRING)
     private BookingStatus status;
@@ -40,4 +41,6 @@ public abstract class TaxiBooking {
     public void setOrderTime(LocalDateTime orderTime) { this.orderTime = orderTime; }
     public BookingStatus getStatus() { return status; }
     public void setStatus(BookingStatus status) { this.status = status; }
+    public String getRequestedVehicleType() { return requestedVehicleType; }
+    public void setRequestedVehicleType(String requestedVehicleType) { this.requestedVehicleType = requestedVehicleType; }
 }
