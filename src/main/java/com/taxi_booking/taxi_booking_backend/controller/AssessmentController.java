@@ -14,6 +14,7 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class AssessmentController
 {
+
     @Autowired
     private AssessmentService assessmentService;
 
@@ -48,14 +49,29 @@ public class AssessmentController
         return ResponseEntity.ok("Feedback records cleanly purged.");
     }
 
-    //Executes the polymorphic outcome rule live on screen
-    @GetMapping("/{id}/trigger-rule")
-    public ResponseEntity<String> testPolymorphism(@PathVariable Long id)
+    //NEW ENDPOINTS FOR CUSTOMER CRUD
+
+    @GetMapping("/passenger/{passengerId}")
+    public ResponseEntity<List<DriverAssessment>> getPassengerRatings(@PathVariable Long passengerId)
     {
+        return ResponseEntity.ok(assessmentService.getPassengerReviews(passengerId));
+    }
+
+    @PutMapping("/edit/{id}")
+    public ResponseEntity<DriverAssessment> editAssessment(@PathVariable Long id, @RequestBody AssessmentDto dto)
+    {
+        return ResponseEntity.ok(assessmentService.editReview(id, dto));
+    }
+
+    // VIVA DEMO: Executes the polymorphic outcome rule live on screen
+    @GetMapping("/{id}/trigger-rule")
+    public ResponseEntity<String> testPolymorphism(@PathVariable Long id) {
         DriverAssessment assessment = assessmentService.getAllRecords().stream()
                 .filter(a -> a.getId().equals(id))
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Record not found"));
+
+        // This single line demonstrates pure OOP Polymorphism
         return ResponseEntity.ok(assessment.processAssessment());
     }
 }
