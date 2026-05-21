@@ -1,5 +1,5 @@
 package com.taxi_booking.taxi_booking_backend.controller;
-
+import com.taxi_booking.taxi_booking_backend.entity.enums.VehicleStatus;
 import com.taxi_booking.taxi_booking_backend.dto.VehicleDto;
 import com.taxi_booking.taxi_booking_backend.entity.Vehicle;
 import com.taxi_booking.taxi_booking_backend.service.VehicleService;
@@ -30,14 +30,14 @@ public class VehicleController {
         return ResponseEntity.ok(vehicleService.getVehiclesByDriver(driverId));
     }
 
+    @PutMapping("/{id}/status")
+    public ResponseEntity<Vehicle> updateStatus(@PathVariable Long id, @RequestParam VehicleStatus status) {
+        return ResponseEntity.ok(vehicleService.updateVehicleStatus(id, status));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> remove(@PathVariable Long id) {
         vehicleService.removeVehicle(id);
         return ResponseEntity.ok("Purged.");
-    }
-
-    @GetMapping("/{id}/required-license")
-    public ResponseEntity<String> getRequiredLicense(@PathVariable Long id) {
-        return ResponseEntity.ok(vehicleService.getRequiredLicense(id));
     }
 }

@@ -2,13 +2,12 @@ package com.taxi_booking.taxi_booking_backend.service;
 
 import com.taxi_booking.taxi_booking_backend.dto.VehicleDto;
 import com.taxi_booking.taxi_booking_backend.entity.*;
-import com.taxi_booking.taxi_booking_backend.entity.enums.DriverStatus;
 import com.taxi_booking.taxi_booking_backend.entity.enums.VehicleStatus;
-import com.taxi_booking.taxi_booking_backend.repository.UserRepository;
+import com.taxi_booking.taxi_booking_backend.entity.enums.DriverStatus;
 import com.taxi_booking.taxi_booking_backend.repository.VehicleRepository;
+import com.taxi_booking.taxi_booking_backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -32,7 +31,7 @@ public class VehicleService {
         } else {
             throw new IllegalArgumentException("Invalid Account Instance.");
         }
-        
+
         Vehicle vehicle;
         switch (dto.getType().toUpperCase()) {
             case "BIKE": vehicle = new Bike(); break;
@@ -52,22 +51,15 @@ public class VehicleService {
         return vehicleRepository.save(vehicle);
     }
 
-    public List<Vehicle> getVehiclesByDriver(Long driverId) {
-        return vehicleRepository.findByDriverId(driverId);
+    // Update Vehicle Status (CRUD: Update)
+    public Vehicle updateVehicleStatus(Long id, VehicleStatus newStatus) {
+        Vehicle vehicle = vehicleRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Vehicle not found in the database."));
+
+        vehicle.setStatus(newStatus);
+        return vehicleRepository.save(vehicle);
     }
 
-    public void removeVehicle(Long id) {
-        vehicleRepository.deleteById(id);
-    }
-
-    public String getRequiredLicense(Long id) {
-        java.util.Optional<Vehicle> result = vehicleRepository.findById(id);
-
-        if (result.isPresent()) {
-            Vehicle vehicle = result.get();
-            return vehicle.getRequiredLicense();
-        } else {
-            throw new RuntimeException("Vehicle not found.");
-        }
-    }
+    public List<Vehicle> getVehiclesByDriver(Long driverId) { return vehicleRepository.findByDriverId(driverId); }
+    public void removeVehicle(Long id) { vehicleRepository.deleteById(id); }
 }
