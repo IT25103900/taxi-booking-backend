@@ -10,7 +10,6 @@ public class AssessmentDto
     private int rating;
     private String violationType;
 
-
     public Long getDriverId()
     {
         return driverId;
