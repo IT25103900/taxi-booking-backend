@@ -13,7 +13,7 @@ public abstract class DriverAssessment
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //Encapsulation
+    // OOP Encapsulation: Private tracking fields safely accessed via methods
     private Long driverId;
     private Long passengerId;
     private String comments;
@@ -21,7 +21,7 @@ public abstract class DriverAssessment
     @Enumerated(EnumType.STRING)
     private ReviewStatus status;
 
-    //Polymorphism
+    // OOP Polymorphism: Abstract concept implemented completely differently by child records
     public abstract String processAssessment();
 
     public Long getId()
