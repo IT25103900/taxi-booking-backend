@@ -32,7 +32,7 @@ public class VehicleService {
         } else {
             throw new IllegalArgumentException("Invalid Account Instance.");
         }
-
+        
         Vehicle vehicle;
         switch (dto.getType().toUpperCase()) {
             case "BIKE": vehicle = new Bike(); break;

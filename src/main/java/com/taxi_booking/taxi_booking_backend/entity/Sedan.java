@@ -10,9 +10,4 @@ public class Sedan extends Vehicle {
     public int getPassengerCapacity() {
         return 4;
     }
-
-    @Override
-    public String getRequiredLicense() {
-        return "Class B - Dual Purpose / Motor Car License Required";
-    }
 }

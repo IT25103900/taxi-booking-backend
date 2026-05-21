@@ -10,9 +10,4 @@ public class ThreeWheeler extends Vehicle {
     public int getPassengerCapacity() {
         return 3;
     }
-
-    @Override
-    public String getRequiredLicense() {
-        return "Class B1 - Three-Wheeler License Required";
-    }
 }
