@@ -10,4 +10,7 @@ import java.util.List;
 public interface AssessmentRepository extends JpaRepository<DriverAssessment, Long>
 {
     List<DriverAssessment> findByDriverIdAndStatus(Long driverId, ReviewStatus status);
+
+    // Fetch all reviews submitted by a specific customer
+    List<DriverAssessment> findByPassengerId(Long passengerId);
 }
