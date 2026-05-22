@@ -6,10 +6,9 @@ import jakarta.persistence.Entity;
 @Entity
 @DiscriminatorValue("PEAK_SURGE")
 public class PeakHourPricing extends FareConfiguration {
-
     @Override
     public Double computeTotalTripFare(Double distanceKms) {
-        // Automatically injects a 1.5x peak-hour multiplier to the final calculation
+        // Polymorphism: Peak hours multiply the base calculation by 1.5x
         return (getBaseFareAmount() + (getRatePerKm() * distanceKms)) * 1.5;
     }
 }
